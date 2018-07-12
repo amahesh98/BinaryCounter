@@ -36,6 +36,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.valueLabel.text=String(Int(pow(10.0, Double(indexPath.row))))
         cell.controller=self
+        cell.delegate = self
         return cell
     }
+}
+extension ViewController:CustomCellDelegate{
+    func subtractPushed(value: Int) {
+        total-=value
+        totalLabel.text="Total: \(total)"
+    }
+    
+    func addPushed(value: Int) {
+        total+=value
+        totalLabel.text="Total: \(total)"
+    }
+    
+    
 }
